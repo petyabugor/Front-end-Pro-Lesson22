@@ -1,8 +1,11 @@
 const sessionText = document.querySelector('.session-text')
 const btnSession = document.querySelector('.session-btn')
+const sessionInput = document.querySelector('.session-input')
 
-sessionStorage.setItem('key', 'sessionStorage');
-sessionText.innerHTML = sessionStorage.getItem('key');
+sessionInput.oninput = () => {
+    sessionStorage.setItem('key', sessionInput.value)
+    sessionText.innerHTML = sessionStorage.getItem('key');
+}
 
 btnSession.addEventListener("click", function () {
     sessionStorage.removeItem('key');
@@ -12,10 +15,11 @@ btnSession.addEventListener("click", function () {
 
 const localText = document.querySelector('.local-text')
 const btnLocal = document.querySelector('.local-btn')
-
-
-localStorage.setItem('key', 'localStorage')
-localText.innerHTML = localStorage.getItem('key')
+const localInput = document.querySelector('.local-input')
+localInput.oninput = () => {
+    localStorage.setItem('key', localInput.value)
+    localText.innerHTML = localStorage.getItem('key')
+}
 
 btnLocal.addEventListener("click", function () {
     localStorage.removeItem('key');
